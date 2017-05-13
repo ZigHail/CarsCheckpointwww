@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CarsCheckpoint.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -13,6 +15,8 @@ namespace CarsCheckpoint
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new Initializer());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
